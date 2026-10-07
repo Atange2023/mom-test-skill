@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>妈妈测试 · 客户访谈技能 — 宣传海报</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:900px;height:1600px;}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    background:#F2EDE2;color:#111111;
+    -webkit-font-smoothing:antialiased;
+  }
+  .latin{font-family:"Arial Black","Arial Bold",Arial,sans-serif;font-weight:900;}
+  .poster{
+    position:relative;width:900px;height:1600px;overflow:hidden;
+    padding:40px 46px 0 46px;
+    display:flex;flex-direction:column;
+    background:
+      repeating-linear-gradient(90deg,rgba(17,17,17,.045) 0 1px,transparent 1px 92px),
+      #F2EDE2;
+  }
+
+  /* ============ 1. 报头 ============ */
+  .hdr{height:198px;flex:0 0 198px;display:flex;align-items:flex-start;position:relative;}
+  .hdr-l{flex:1;padding-top:4px;}
+  .kicker{
+    display:inline-block;background:#111;color:#F2EDE2;
+    font-size:10.5px;letter-spacing:2.4px;padding:4px 10px 3px;
+    font-weight:700;margin-bottom:13px;
+  }
+  .title{
+    font-size:84px;font-weight:900;line-height:.94;letter-spacing:2px;
+  }
+  .title em{color:#E2261C;font-style:normal;}
+  .en{
+    font-size:19px;letter-spacing:7.5px;color:#0B4EA2;margin-top:9px;
+  }
+  .hdr-rule{height:5px;background:#111;margin-top:11px;width:430px;}
+  .sub{
+    margin-top:10px;font-size:13.5px;font-weight:700;letter-spacing:.6px;color:#333;
+  }
+  .sub b{color:#E2261C;}
+  .art{width:196px;height:190px;flex:0 0 196px;}
+
+  /* ============ 2. 痛点黑带 ============ */
+  .statement{
+    height:126px;flex:0 0 126px;
+    margin:0 -46px;padding:22px 46px;
+    background:#111;color:#F2EDE2;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .statement .l1{font-size:25px;font-weight:900;letter-spacing:1.5px;line-height:1.28;}
+  .statement .l2{font-size:25px;font-weight:900;letter-spacing:1.5px;line-height:1.28;color:#F5C518;}
+  .statement .l2 span{color:#F2EDE2;font-weight:700;font-size:16px;letter-spacing:.5px;}
+
+  /* ============ 3. 数字条 ============ */
+  .metrics{
+    height:136px;flex:0 0 136px;
+    display:flex;align-items:stretch;
+    border-bottom:5px solid #111;
+  }
+  .metric{flex:1;padding:20px 0 16px 18px;border-left:1px solid rgba(17,17,17,.22);}
+  .metric:first-child{border-left:none;padding-left:0;}
+  .metric .num{font-size:56px;line-height:.86;letter-spacing:-1px;}
+  .metric .nm{font-size:15px;font-weight:900;margin-top:9px;letter-spacing:.5px;}
+  .metric .ds{font-size:10.5px;color:#5A5A5A;margin-top:4px;letter-spacing:.2px;}
+
+  /* ============ 4. 12 张能力卡 ============ */
+  .caps-head{
+    display:flex;align-items:baseline;gap:12px;margin:22px 0 12px;
+  }
+  .caps-head .t{font-size:19px;font-weight:900;letter-spacing:1px;}
+  .caps-head .s{font-size:11px;color:#5A5A5A;letter-spacing:.3px;}
+  .caps-head .bar{flex:1;height:4px;background:#111;transform:translateY(-4px);}
+  .caps{
+    height:378px;flex:0 0 378px;
+    display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(4,1fr);
+    gap:5px;background:#111;padding:5px;border:3px solid #111;
+  }
+  .cap{
+    background:#FBF8F1;padding:8px 9px 7px;display:flex;flex-direction:column;
+    position:relative;overflow:hidden;
+  }
+  .cap .n{font-size:19px;line-height:1;letter-spacing:-.5px;}
+  .cap .cn{font-size:13.5px;font-weight:900;margin-top:5px;letter-spacing:.4px;line-height:1.15;}
+  .cap .tg{font-size:9.5px;color:#5A5A5A;margin-top:3px;line-height:1.32;letter-spacing:.1px;}
+  .cap .chip{
+    position:absolute;right:0;top:0;width:24px;height:5px;
+  }
+  .c1{color:#E2261C}.c2{color:#0B4EA2}.c3{color:#B8860B}.c4{color:#111}
+  .b1{background:#E2261C}.b2{background:#0B4EA2}.b3{background:#F5C518}.b4{background:#111}
+
+  /* ============ 5. 陪练三步 ============ */
+  .sec-t{
+    display:flex;align-items:center;gap:11px;margin:22px 0 13px;
+  }
+  .sec-t .sq{width:15px;height:15px;background:#E2261C;}
+  .sec-t .t{font-size:19px;font-weight:900;letter-spacing:1px;}
+  .sec-t .s{font-size:11px;color:#5A5A5A;}
+  .sec-t .bar{flex:1;height:4px;background:#111;}
+  .steps{height:132px;flex:0 0 132px;display:flex;gap:7px;}
+  .step{
+    flex:1;border:3px solid #111;background:#FBF8F1;
+    padding:11px 12px;position:relative;display:flex;flex-direction:column;
+  }
+  .step .k{
+    position:absolute;top:-3px;left:-3px;width:30px;height:24px;
+    background:#111;color:#F2EDE2;font-size:13px;
+    display:flex;align-items:center;justify-content:center;letter-spacing:0;
+  }
+  .step.a .k{background:#E2261C}.step.b .k{background:#0B4EA2}.step.c .k{background:#111}
+  .step .h{font-size:15px;font-weight:900;margin:19px 0 6px;letter-spacing:.6px;}
+  .step .d{font-size:10.5px;line-height:1.5;color:#3A3A3A;}
+  .step .d b{color:#111;font-weight:900;}
+
+  /* ============ 6. 五档起点 ============ */
+  .att{height:96px;flex:0 0 96px;display:flex;gap:5px;}
+  .att .col{
+    flex:1;display:flex;flex-direction:column;padding:8px 7px 7px;
+    color:#F2EDE2;position:relative;
+  }
+  .att .col .no{font-size:16px;line-height:1;opacity:.72;}
+  .att .col .nm{font-size:12px;font-weight:900;margin-top:5px;line-height:1.2;letter-spacing:.2px;}
+  .att .col .tp{font-size:9.5px;margin-top:auto;line-height:1.28;opacity:.95;}
+  .a1{background:#111}.a2{background:#E2261C}.a3{background:#F5C518;color:#111}
+  .a3 .no,.a3 .tp{opacity:.62}
+  .a4{background:#4A86D8}.a5{background:#0B4EA2}
+
+  /* ============ 7. 引文 ============ */
+  .quote{
+    margin-top:16px;border-left:6px solid #E2261C;padding:2px 0 2px 14px;
+  }
+  .quote .q{font-size:14px;font-weight:700;letter-spacing:.3px;color:#111;line-height:1.4;}
+  .quote .a{font-size:10.5px;color:#5A5A5A;margin-top:4px;letter-spacing:.6px;}
+
+  /* ============ 7.5 适合谁 ============ */
+  .fit{
+    margin-top:16px;border-top:4px solid #111;padding-top:11px;
+    display:flex;align-items:center;gap:9px;flex-wrap:nowrap;
+  }
+  .fit .lb{
+    background:#0B4EA2;color:#F2EDE2;font-size:10.5px;font-weight:700;
+    letter-spacing:1.2px;padding:3px 8px 2px;white-space:nowrap;
+  }
+  .fit .it{font-size:11.5px;font-weight:700;letter-spacing:.3px;white-space:nowrap;color:#222;}
+  .fit .dot{width:5px;height:5px;background:#E2261C;border-radius:50%;flex:0 0 5px;}
+
+  /* ============ 8. 行动区 ============ */
+  .spacer{flex:1;min-height:8px;}
+  .cta{
+    margin:0 -46px;padding:20px 46px 18px;background:#111;color:#F2EDE2;
+  }
+  .cta .row1{display:flex;align-items:baseline;gap:14px;}
+  .cta .big{font-size:27px;font-weight:900;letter-spacing:1.5px;color:#F5C518;}
+  .cta .trig{font-size:12px;letter-spacing:.4px;color:#F2EDE2;}
+  .cta .cmd{
+    margin-top:13px;font-family:"Consolas","Courier New",monospace;
+    font-size:11.5px;background:#1C1C1C;border:1px solid #3A3A3A;
+    padding:9px 12px;color:#8FD3A0;letter-spacing:.2px;white-space:nowrap;
+  }
+  .cta .cmd i{color:#F5C518;font-style:normal;}
+  .cta .row3{
+    display:flex;gap:16px;margin-top:12px;font-size:10.5px;color:#B9B2A4;letter-spacing:.4px;
+  }
+  .cta .row3 span::before{content:"";display:inline-block;width:6px;height:6px;background:#E2261C;margin-right:6px;transform:translateY(-1px);}
+  .cta .row3 span:nth-child(2)::before{background:#F5C518}
+  .cta .row3 span:nth-child(3)::before{background:#4A86D8}
+  .cta .row3 span:nth-child(4)::before{background:#F2EDE2}
+
+  /* 底部色带 */
+  .stripe{height:14px;flex:0 0 14px;margin:0 -46px;display:flex;}
+  .stripe i{flex:1;}
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- 1. 报头 -->
+  <header class="hdr">
+    <div class="hdr-l">
+      <div class="kicker latin">AGENT SKILL &nbsp;·&nbsp; v1.0.0 &nbsp;·&nbsp; 2026</div>
+      <div class="title">妈妈<em>测试</em></div>
+      <div class="en latin">THE&nbsp;MOM&nbsp;TEST</div>
+      <div class="hdr-rule"></div>
+      <div class="sub">客户访谈技能 &nbsp;—&nbsp; <b>12 张能力卡</b> ＋ <b>客户访谈陪练</b></div>
+    </div>
+    <div class="art">
+      <svg width="196" height="190" viewBox="0 0 196 190">
+        <rect x="0" y="6" width="196" height="6" fill="#111"></rect>
+        <circle cx="120" cy="72" r="55" fill="#E2261C"></circle>
+        <rect x="0" y="126" width="92" height="60" fill="#F5C518"></rect>
+        <path d="M104 186 L146 186 L125 128 Z" fill="#0B4EA2"></path>
+        <rect x="156" y="126" width="40" height="26" fill="#111"></rect>
+        <path d="M0 90 A46 46 0 0 1 46 44 L46 90 Z" fill="#0B4EA2" opacity="0"></path>
+        <rect x="150" y="30" width="18" height="76" fill="#111"></rect>
+      </svg>
+    </div>
+  </header>
+
+  <!-- 2. 痛点 -->
+  <div class="statement">
+    <div class="l1">客户出于礼貌对你说谎</div>
+    <div class="l2">而你把谎话当数据 <span>—— 一路做错，到钱花完才发现</span></div>
+  </div>
+
+  <!-- 3. 数字 -->
+  <div class="metrics">
+    <div class="metric"><div class="num latin c1">12</div><div class="nm">张能力卡</div><div class="ds">RIA++ 结构 · 附原文依据</div></div>
+    <div class="metric"><div class="num latin c2">14</div><div class="nm">分制评分</div><div class="ds">每处失分都引原著原句</div></div>
+    <div class="metric"><div class="num latin c4">5</div><div class="nm">档起始态度</div><div class="ds">冷漠到热情，各有各的坑</div></div>
+  </div>
+
+  <!-- 4. 12 张卡 -->
+  <div class="caps-head">
+    <div class="t">12 张能力卡 · 全部可命中</div>
+    <div class="bar"></div>
+    <div class="s">说人话就会自动触发</div>
+  </div>
+  <div class="caps">
+    <div class="cap"><div class="chip b1"></div><div class="n latin c1">01</div><div class="cn">三条铁律</div><div class="tg">谈他们的生活、问过去的细节、少说多听</div></div>
+    <div class="cap"><div class="chip b2"></div><div class="n latin c2">02</div><div class="cn">坏数据化解</div><div class="tg">好评挡开 · 泛泛拉回具体 · 点子下挖动机</div></div>
+    <div class="cap"><div class="chip b3"></div><div class="n latin c3">03</div><div class="cn">好问题判定</div><div class="tg">"你觉得"改写成"上次何时、代价多少"</div></div>
+    <div class="cap"><div class="chip b4"></div><div class="n latin c4">04</div><div class="cn">关键问题</div><div class="tg">每场至少问一个能推翻你生意的问题</div></div>
+    <div class="cap"><div class="chip b1"></div><div class="n latin c1">05</div><div class="cn">先广后深</div><div class="tg">把产品、市场、预算全部失败点摊开</div></div>
+    <div class="cap"><div class="chip b2"></div><div class="n latin c2">06</div><div class="cn">产品 / 市场风险</div><div class="tg">先分清你死在产品还是死在市场</div></div>
+    <div class="cap"><div class="chip b3"></div><div class="n latin c3">07</div><div class="cn">保持随意</div><div class="tg">把访谈降级成聊天，越晚提想法越好</div></div>
+    <div class="cap"><div class="chip b4"></div><div class="n latin c4">08</div><div class="cn">承诺与推进</div><div class="tg">用时间 · 声誉 · 金钱三大货币索要承诺</div></div>
+    <div class="cap"><div class="chip b1"></div><div class="n latin c1">09</div><div class="cn">会议成败</div><div class="tg">唯一标尺：是否推进到具体的下一步</div></div>
+    <div class="cap"><div class="chip b2"></div><div class="n latin c2">10</div><div class="cn">客户切片</div><div class="tg">好细分 = 谁 ＋ 在哪找；反馈矛盾=切太粗</div></div>
+    <div class="cap"><div class="chip b3"></div><div class="n latin c3">11</div><div class="cn">找到对话</div><div class="tg">把"你去找人"变成"人来找你"（VFWPA）</div></div>
+    <div class="cap"><div class="chip b4"></div><div class="n latin c4">12</div><div class="cn">流程与笔记</div><div class="tg">会前 3 个大问题 · 会中分工 · 会后复盘</div></div>
+  </div>
+
+  <!-- 5. 陪练三步 -->
+  <div class="sec-t">
+    <div class="sq"></div>
+    <div class="t">陪练模式</div>
+    <div class="bar"></div>
+    <div class="s">4–6 轮实战 · 事后出戏点评</div>
+  </div>
+  <div class="steps">
+    <div class="step a">
+      <div class="k latin">01</div>
+      <div class="h">我入戏</div>
+      <div class="d">我变成一个<b>具体的人</b>：有身份、有处境、有隐情，而且会说礼貌的谎</div>
+    </div>
+    <div class="step b">
+      <div class="k latin">02</div>
+      <div class="h">你访谈</div>
+      <div class="d">像真去见客户那样问我 <b>4–6 轮</b>；随时可喊「出戏」摘面具</div>
+    </div>
+    <div class="step c">
+      <div class="k latin">03</div>
+      <div class="h">我点评</div>
+      <div class="d">逐句打分 ＋ <b>引原著原文</b> ＋ 改写话术 ＋ 判定会议成败</div>
+    </div>
+  </div>
+
+  <!-- 6. 五档起点 -->
+  <div class="sec-t">
+    <div class="sq" style="background:#0B4EA2"></div>
+    <div class="t">五档起始态度</div>
+    <div class="bar"></div>
+    <div class="s">起点不同，你犯的错完全不同</div>
+  </div>
+  <div class="att">
+    <div class="col a1"><div class="no latin">01</div><div class="nm">非常<br>不感兴趣</div><div class="tp">你会为证明自己而推销</div></div>
+    <div class="col a2"><div class="no latin">02</div><div class="nm">比较<br>冷漠</div><div class="tp">推销，或过早放弃</div></div>
+    <div class="col a3"><div class="no latin">03</div><div class="nm">中性</div><div class="tp">问太浅，把普通回答当信号</div></div>
+    <div class="col a4"><div class="no latin">04</div><div class="nm">感兴趣</div><div class="tp">被好评带走，忘了追事实</div></div>
+    <div class="col a5"><div class="no latin">05</div><div class="nm">非常<br>感兴趣</div><div class="tp">草率成交，跳过学习</div></div>
+  </div>
+
+  <!-- 7. 引文 -->
+  <div class="quote">
+    <div class="q">"There's more reliable information in a 'meh' than a 'Wow!'"</div>
+    <div class="a">一个「嗯」里的可靠信息，比一个「哇」更多 —— Rob Fitzpatrick</div>
+  </div>
+
+  <!-- 7.5 适合谁 -->
+  <div class="fit">
+    <span class="lb">适合谁</span>
+    <span class="it">创业者</span><span class="dot"></span>
+    <span class="it">产品经理</span><span class="dot"></span>
+    <span class="it">独立开发者</span><span class="dot"></span>
+    <span class="it">销售负责人</span><span class="dot"></span>
+    <span class="it">做用户研究的人</span><span class="dot"></span>
+    <span class="it">任何一个想验证点子的人</span>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- 8. 行动 -->
+  <div class="cta">
+    <div class="row1">
+      <div class="big">现在就试一轮</div>
+      <div class="trig">对它说：「妈妈测试陪练」</div>
+    </div>
+    <div class="cmd">git clone https://github.com/Atange2023/<i>mom-test-skill</i>.git ~/.workbuddy/skills/mom-test</div>
+    <div class="row3">
+      <span>纯 Markdown</span><span>无脚本</span><span>无网络请求</span><span>免费开源</span>
+    </div>
+  </div>
+  <div class="stripe">
+    <i style="background:#E2261C"></i><i style="background:#F5C518"></i>
+    <i style="background:#0B4EA2"></i><i style="background:#111"></i>
+  </div>
+
+</div>
+</body>
+</html>
